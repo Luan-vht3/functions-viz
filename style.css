@@ -1,0 +1,12 @@
+body {
+  background: #111;
+  color: #ddd;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+#plot {
+  width: 100vw;
+  height: 100vh;
+}
