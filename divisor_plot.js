@@ -110,14 +110,14 @@ async function makePlotFromFile(url) {
       x: def.x, y: def.y, text: def.text,
       mode: 'markers', type: 'scattergl',
       name: 'Deficient',
-      marker: { color: '#f52f2f', size: 3, opacity: 0.6 },
+      marker: { color: '#f52f2f', size: 2, opacity: 0.6 },
       hovertemplate: '%{text}<extra></extra>'
     },
     {
       x: abu.x, y: abu.y, text: abu.text,
       mode: 'markers', type: 'scattergl',
       name: 'Abundant',
-      marker: { color: '#2ff55a', size: 3, opacity: 0.6 },
+      marker: { color: '#2ff55a', size: 2, opacity: 0.6 },
       hovertemplate: '%{text}<extra></extra>'
     },
     {
@@ -125,7 +125,7 @@ async function makePlotFromFile(url) {
       mode: 'markers', type: 'scattergl',
       name: 'Perfect',
       marker: {
-        color: 'gold', size: 12, symbol: 'star',
+        color: 'gold', size: 8, symbol: 'star',
         line: { color: 'black', width: 1 }
       },
       hovertemplate: '%{text}<extra></extra>'
