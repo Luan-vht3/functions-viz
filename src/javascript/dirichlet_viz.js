@@ -74,7 +74,7 @@ function computeProportions(maxL, m) {
 
 function totativeColor(t, m) {
     // angle = 2π * t / m
-    const hue = (360 * (m-t)/m) % 360;  // 0..360 degrees
+    const hue = (360 * (m-t+1)/m) % 360;  // 0..360 degrees
     const saturation = 70; // %
     const lightness = 50;  // %
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -84,7 +84,7 @@ function totativeColor(t, m) {
 // Plotting
 // ─────────────────────────────────────────────────────
 function runPlot(m) {
-    const maxL = 500000;
+    const maxL = 50_000;
     const { tots, proportions } = computeProportions(maxL, m);
     const phi = tots.length;
 
@@ -100,7 +100,7 @@ function runPlot(m) {
     const y0 = 1/phi;
 
     const layout = {
-        title: `Proportions of Prime Residue Classes mod ${m}`,
+        title: `Proportions of Prime Residue Classes mod ${m}  |  φ(${m})=${phi}`,
         paper_bgcolor: "#111",
         plot_bgcolor: "#111",
         font: { color: "#ddd" },

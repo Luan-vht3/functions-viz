@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Dirichlet Theorem Plot</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,7 +12,7 @@
     <div id="nav-placeholder"></div>
     <script>
     async function loadNavbar() {
-        const resp = await fetch('../navbar.html');
+        const resp = await fetch('navbar.html');
         const html = await resp.text();
         document.getElementById('nav-placeholder').innerHTML = html;
     }
@@ -30,6 +30,6 @@
     <!-- Plot container -->
     <div id="plot"></div>
 
-    <script src="../src/javascript/dirichlet_viz.js"></script>
+    <script src="src/javascript/dirichlet_viz.js"></script>
 </body>
 </html>
