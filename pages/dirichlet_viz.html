@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dirichlet Theorem Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="nav-placeholder"></div>
+    <script>
+    async function loadNavbar() {
+        const resp = await fetch('../navbar.html');
+        const html = await resp.text();
+        document.getElementById('nav-placeholder').innerHTML = html;
+    }
+    loadNavbar();
+    </script>
+    
+
+    <!-- Input for modulus -->
+    <div id="controls">
+        <label for="modulus">Modulus</label>
+        <input type="number" id="modulus" value="12" min="2">
+        <button id="run">Plot!</button>
+    </div>
+
+    <!-- Plot container -->
+    <div id="plot"></div>
+
+    <script src="../src/javascript/dirichlet_viz.js"></script>
+</body>
+</html>

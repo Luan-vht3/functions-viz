@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Functions Viz</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Functions Viz | Divisor Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <div id="nav-placeholder"></div>
     <script>
     async function loadNavbar() {
-        const resp = await fetch('navbar.html');
+        const resp = await fetch('../navbar.html');
         const html = await resp.text();
         document.getElementById('nav-placeholder').innerHTML = html;
     }
     loadNavbar();
     </script>
     
+    <!-- Plot area -->
+    <div id="plot"></div>
 
-    <div id="content">
-        <h1>Welcome</h1>
-        <p>Select one of the plots above.</p>
-    </div>
-
+    <script src="../src/javascript/divisor_plot.js"></script>
 </body>
 </html>

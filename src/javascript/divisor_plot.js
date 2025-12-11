@@ -1,7 +1,5 @@
 // ============================================================
 // Interactive Divisor Plot (loads precomputed CSV with factorization)
-// CSV format expected: n,sigma_minus_n,"factorization"
-// Example: 60,108,"2^2 × 3 × 5"
 // ============================================================
 
 // --- robust CSV line parser (handles quoted fields) ---
@@ -110,14 +108,14 @@ async function makePlotFromFile(url) {
       x: def.x, y: def.y, text: def.text,
       mode: 'markers', type: 'scattergl',
       name: 'Deficient',
-      marker: { color: '#f52f2f', size: 2, opacity: 0.6 },
+      marker: { color: '#f52f2f', size: 2, opacity: 0.8 },
       hovertemplate: '%{text}<extra></extra>'
     },
     {
       x: abu.x, y: abu.y, text: abu.text,
       mode: 'markers', type: 'scattergl',
       name: 'Abundant',
-      marker: { color: '#2ff55a', size: 2, opacity: 0.6 },
+      marker: { color: '#2ff55a', size: 2, opacity: 0.8 },
       hovertemplate: '%{text}<extra></extra>'
     },
     {
@@ -125,7 +123,7 @@ async function makePlotFromFile(url) {
       mode: 'markers', type: 'scattergl',
       name: 'Perfect',
       marker: {
-        color: 'gold', size: 8, symbol: 'star',
+        color: 'gold', size: 10, symbol: 'star',
         line: { color: 'black', width: 1 }
       },
       hovertemplate: '%{text}<extra></extra>'
@@ -139,7 +137,7 @@ async function makePlotFromFile(url) {
     font: { color: '#ddd' },
     xaxis: { title: 'n', type: 'log', gridcolor: '#333' },
     yaxis: { title: 'σ(n) − n', type: 'log', gridcolor: '#333' },
-    legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(0,0,0,0)' },
+    legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(30, 30, 30, 0.5)' },
     hovermode: 'closest'
   };
 
@@ -155,7 +153,7 @@ async function makePlotFromFile(url) {
 }
 
 // --- Run (change filename if needed) ---
-makePlotFromFile('sigma.csv').catch(err => {
+makePlotFromFile('../sigma.csv').catch(err => {
   console.error('Error loading/plotting CSV:', err);
   const el = document.getElementById('plot');
   if (el) el.innerText = 'Error loading CSV: see console for details.';
