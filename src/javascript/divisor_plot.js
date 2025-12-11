@@ -153,7 +153,7 @@ async function makePlotFromFile(url) {
 }
 
 // --- Run (change filename if needed) ---
-makePlotFromFile('../sigma.csv').catch(err => {
+makePlotFromFile('sigma.csv').catch(err => {
   console.error('Error loading/plotting CSV:', err);
   const el = document.getElementById('plot');
   if (el) el.innerText = 'Error loading CSV: see console for details.';
