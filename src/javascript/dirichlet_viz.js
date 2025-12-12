@@ -83,8 +83,8 @@ function totativeColor(t, m) {
 // ─────────────────────────────────────────────────────
 // Plotting
 // ─────────────────────────────────────────────────────
-function runPlot(m) {
-    const maxL = 100_000;
+function runPlot(m, maxL) {
+    //const maxL = 1_000_000;
     const { tots, proportions } = computeProportions(maxL, m);
     const phi = tots.length;
 
@@ -104,7 +104,7 @@ function runPlot(m) {
         paper_bgcolor: "#111",
         plot_bgcolor: "#111",
         font: { color: "#ddd" },
-        xaxis: { title: "L (prime index)", gridcolor: "#333", range: [0, maxL], fixedrange: true },
+        xaxis: { title: "L (prime index)", gridcolor: "#333", range: [0, maxL],  },
         yaxis: { title: "Proportion", range: [0, 1], gridcolor: "#333" },
         //legend: { x: 0.98, y: 0.98, xanchor: "right", yanchor: "top", bgcolor: 'rgba(30, 30, 30, 0.5)' },
         shapes: [{ type: 'line', x0: 0, x1: maxL, y0: y0, y1: y0, line: {color: 'white', width: 1, dash: 'dash'} }],
@@ -125,18 +125,28 @@ function runPlot(m) {
 // Button click
 document.getElementById("run").addEventListener("click", () => {
     const m = parseInt(document.getElementById("modulus").value);
-    runPlot(m);
+    const maxL = parseInt(document.getElementById("maxL").value);
+    runPlot(m, maxL);
 });
 
 // Press Enter in the input box
 document.getElementById("modulus").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         const m = parseInt(document.getElementById("modulus").value);
-        runPlot(m);
+        const maxL = parseInt(document.getElementById("maxL").value);
+        runPlot(m, maxL);
+    }
+});
+
+document.getElementById("maxL").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        const m = parseInt(document.getElementById("modulus").value);
+        const maxL = parseInt(document.getElementById("maxL").value);
+        runPlot(m, maxL);
     }
 });
 
 // Auto-run on page load
 window.addEventListener("DOMContentLoaded", () => {
-    runPlot(12); // default plot
+    runPlot(12, 100_000); // default plot
 });
