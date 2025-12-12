@@ -84,7 +84,7 @@ function totativeColor(t, m) {
 // Plotting
 // ─────────────────────────────────────────────────────
 function runPlot(m) {
-    const maxL = 50_000;
+    const maxL = 100_000;
     const { tots, proportions } = computeProportions(maxL, m);
     const phi = tots.length;
 
@@ -107,7 +107,7 @@ function runPlot(m) {
         xaxis: { title: "L (prime index)", gridcolor: "#333", range: [0, maxL], fixedrange: true },
         yaxis: { title: "Proportion", range: [0, 1], gridcolor: "#333" },
         //legend: { x: 0.98, y: 0.98, xanchor: "right", yanchor: "top", bgcolor: 'rgba(30, 30, 30, 0.5)' },
-        shapes: [{ type: 'line', x0: 0, x1: maxL, y0: y0, y1: y0, line: {color: 'gray', width: 1, dash: 'dash'} }],
+        shapes: [{ type: 'line', x0: 0, x1: maxL, y0: y0, y1: y0, line: {color: 'white', width: 1, dash: 'dash'} }],
         hovermode: 'closest',
         dragmode: 'pan'
     };
